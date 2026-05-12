@@ -203,15 +203,7 @@ with st.container():
     st.markdown('<div class="step-label">Step 1</div>', unsafe_allow_html=True)
     st.markdown('<div class="step-title">API key</div>', unsafe_allow_html=True)
 
-    api_key = st.text_input(
-        "Anthropic API key",
-        type="password",
-        placeholder="sk-ant-...",
-        help="Your key is used only for this session and never stored.",
-        label_visibility="collapsed",
-    )
-    if api_key:
-        st.success("API key entered ✓", icon="🔑")
+    api_key = st.secrets.get("ANTHROPIC_API_KEY", "")
     st.markdown('</div>', unsafe_allow_html=True)
 
 # ── Step 2 — Upload ───────────────────────────────────────────────────────────
